@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Poetsen+One&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="css/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <section class="header">
+            <h2>Novo Usuário</h2>
+        </section>
+        <form id="form" class="form">
+            <div class="form-content">
+               <label for="username">Nome completo:</label>
+               <input type="text" id="username" placeholder="Digite o seu nome completo...">
+               <a>Aqui vai a mensagem de erro...</a>
+            
+            </div>
+
+            <div class="form-content">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Digite o seu email...">
+                <a>Aqui vai a mensagem de erro...</a>
+             
+            </div>
+
+             <div class="form-content">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" placeholder="Digite sua senha...">
+                <a>Aqui vai a mensagem de erro...</a>
+             
+            </div>
+
+             <div class="form-content">
+                <label for="password-confirmation">Confirmação de senha:</label>
+                <input type="password" id="password-confirmation" placeholder="Digite sua senha novamente...">
+                <a>Aqui vai a mensagem de erro...</a>
+             
+            </div>
+
+            <div class="form-content">
+                <label for="cpf">Digite seu CPF/CNPJ:</label>
+                <input type="text" autocomplete="off" maxlength="14"  id="cpf" name="cpf" placeholder="Digite aqui seu CPF/CNPJ">
+                <a>Aqui vai a mensagem de erro...</a>
+             
+            </div>
+            
+            <div class="form-content">
+                <label for="dataNascimento">Data de nascimento:</label>
+                <input type="date" id="data" min="1900-01-01" max="2200-01-01">
+                <a>Aqui vai a mensagem de erro...</a>
+            </div>
+
+            <div class="form-content">
+                <label for="genero">Gênero:</label><br>
+                <select id="genero" name="genero">
+                <option value="">Selecione</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="outro">Outros</option>
+                </select><br>
+                <br>
+                <a>Aqui vai a mensagem de erro...</a>
+            </div>
+
+            <div class="form-content">
+                <label for="termos">Aceito os termos e condições</label>
+                <input type="checkbox" id="termos">
+                <a>Aqui vai a mensagem de erro...</a>
+            </div>
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
+
+    </div>
+
+    
+</body>
+</html>
+<!-- cpf.addEventListener('keypress', () => {
+    let cpfLength = cpf.value.length 
+    if (cpfLength == 3 || cpfLength == 7) {
+        cpf.value += '.'
+    }else if (inputLength == 11) {
+        cpf.value += '-'
+    }
+})-->
