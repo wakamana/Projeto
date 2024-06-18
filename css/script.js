@@ -7,6 +7,10 @@ const genero = document.getElementById("genero");
 const data = document.getElementById("data");
 const termos = document.getElementById("termos");
 const cpf = document.getElementById("cpf");
+const cep = document.getElementById("cep");
+const endereco = document.getElementById("endereco");
+const bairro = document.getElementById("bairro");
+const cidade = document.getElementById("cidade");
 
 form.addEventListener("submit", (event) => {
    event.preventDefault();
@@ -28,7 +32,7 @@ password.addEventListener("blur", () => {
 
 cpf.addEventListener("blur", () => {
     checkInputCPF();
-});
+})
 
 passwordConfirmation.addEventListener("blur", () => {
     checkInputPasswordConfirmation();
@@ -37,16 +41,32 @@ passwordConfirmation.addEventListener("blur", () => {
 genero.addEventListener("blur", () => {
     checkInputGenero();
 })
+
 data.addEventListener("blur", () => {
     checkInputData();
 })
 
+cep.addEventListener("blur", () => {
+    checkInputCep();
+})
+
+endereco.addEventListener("blur", () => {
+    checkInputEndereco();
+})
+
+bairro.addEventListener("blur", () => {
+    checkInputBairro();
+})
+
+cidade.addEventListener("blur", () => {
+    checkInputCidade();
+})
+
+
 function checkInputUsername(){
     const usernameValue = username.value;
 
-    console.log(usernameValue);
-
-    if(usernameValue === ""){
+    if(usernameValue === "" ){
         errorInput(username, "Digite seu nome!");
     }else{
         const formItem = username.parentElement;
@@ -91,7 +111,7 @@ function checkInputPasswordConfirmation(){
     }
 }
 
-function checkInputCPF() {
+function checkInputCPF(){
     const cpfValue = cpf.value;
     if (cpfValue === "") {
         errorInput(cpf, "Digite seu CPF!");
@@ -123,12 +143,43 @@ function validateCPF(cpf) {
     return true;
 }
 
-function checkInputGenero(){
-    const generoValue = genero.value;
-    if (generoValue === ""){
-        errorInput(genero, "Selecione o seu gênero!")
+
+function checkInputCep(){
+    const cepValue = cep.value;
+    if (cepValue === ""){
+        errorInput(cep, "Coloque o seu CEP")
     }else{
-        const formItem = genero.parentElement;
+        const formItem = cep.parentElement;
+        formItem.className = "form-content";
+    }
+}
+
+function checkInputEndereco(){
+    const enderecoValue = endereco.value;
+    if (enderecoValue === ""){
+        errorInput(endereco, "Coloque o seu endereço")
+    }else{
+        const formItem = endereco.parentElement;
+        formItem.className = "form-content";
+    }
+}
+
+function checkInputCidade(){
+    const cidadeValue = cidade.value;
+    if (cidadeValue === ""){
+        errorInput(cidade, "Coloque a sua cidade")
+    }else{
+        const formItem = cidade.parentElement;
+        formItem.className = "form-content";
+    }
+}
+
+function checkInputBairro(){
+    const bairroValue = bairro.value;
+    if (bairroValue === ""){
+        errorInput(bairro, "Coloque o seu bairro")
+    }else{
+        const formItem = bairro.parentElement;
         formItem.className = "form-content";
     }
 }
@@ -139,6 +190,16 @@ function checkInputData(){
         errorInput(data, "Coloque a sua data de nascimento!");
     }else{
         const formItem = data.parentElement;
+        formItem.className = "form-content";
+    }
+}
+
+function checkInputGenero(){
+    const generoValue = genero.value;
+    if (generoValue === ""){
+        errorInput(genero, "Selecione o seu gênero!")
+    }else{
+        const formItem = genero.parentElement;
         formItem.className = "form-content";
     }
 }
@@ -157,11 +218,16 @@ function checkForm(){
     checkInputEmail();
     checkInputPassword();
     checkInputPasswordConfirmation();
-    checkInputGenero();
     checkInputData();
     checkBoxTermos();
     checkInputCPF();
-    
+    checkInputCep();
+    checkInputEndereco();
+    checkInputBairro();
+    checkInputCidade();
+    checkInputGenero();
+
+
     const formItems = form.querySelectorAll(".form-content")
 
     const isValid = [...formItems].every( (item) => {

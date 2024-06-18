@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Poetsen+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/estilo.css">
-    <script src="css/script.js"></script>
 </head>
 <body>
     <div class="container">
@@ -22,7 +21,7 @@
         <form id="form" class="form">
             <div class="form-content">
                <label for="username">Nome completo:</label>
-               <input type="text" id="username" placeholder="Digite o seu nome completo...">
+               <input type="text" id="username" minlength="3" placeholder="Digite o seu nome completo...">
                <a>Aqui vai a mensagem de erro...</a>
             
             </div>
@@ -41,7 +40,7 @@
              
             </div>
 
-             <div class="form-content">
+            <div class="form-content">
                 <label for="password-confirmation">Confirmação de senha:</label>
                 <input type="password" id="password-confirmation" placeholder="Digite sua senha novamente...">
                 <a>Aqui vai a mensagem de erro...</a>
@@ -49,8 +48,8 @@
             </div>
 
             <div class="form-content">
-                <label for="cpf">Digite seu CPF/CNPJ:</label>
-                <input type="text" autocomplete="off" maxlength="14"  id="cpf" name="cpf" placeholder="Digite aqui seu CPF/CNPJ">
+                <label for="cpf">Digite seu CPF:</label>
+                <input type="text" autocomplete="off" maxlength="14"  id="cpf" name="cpf" placeholder="Digite aqui seu CPF">
                 <a>Aqui vai a mensagem de erro...</a>
              
             </div>
@@ -62,10 +61,22 @@
             </div>
 
             <div class="form-content">
-                <label for="endereco">Endereço:</label>
+                <label for="cep">CEP:</label>
                 <input type="text" id="cep" placeholder="Digite aqui seu cep">
+                <a>Aqui vai a mensagem de erro...</a>
+            </div>    
+            <div class="form-content">
+                <label for="endereco">Endereço:</label>
                 <input type="text" id="endereco" placeholder="Digite seu endereço">
+                <a>Aqui vai a mensagem de erro...</a>
+            </div>    
+            <div class="form-content">
+                <label for="bairro">Bairro:</label>    
                 <input type="text" id="bairro" placeholder="Digite aqui seu bairro">
+                <a>Aqui vai a mensagem de erro...</a>
+            </div>
+            <div class="form-content">
+                <label for="cidade">Cidade:</label> 
                 <input type="text" id="cidade" placeholder="Digite aqui sua cidade">
                 <a>Aqui vai a mensagem de erro...</a>
             </div>
@@ -95,7 +106,7 @@
 
     </div>
 
-    
+    <script src="css/script.js"></script>
 </body>
 </html>
 <!-- cpf.addEventListener('keypress', () => {
