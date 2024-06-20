@@ -66,8 +66,8 @@
                 <a>Aqui vai a mensagem de erro...</a>
             </div>    
             <div class="form-content">
-                <label for="endereco">Endereço:</label>
-                <input type="text" id="endereco" placeholder="Digite seu endereço">
+                <label for="rua">Rua:</label>
+                <input type="text" id="rua" placeholder="Digite seu endereço">
                 <a>Aqui vai a mensagem de erro...</a>
             </div>    
             <div class="form-content">
@@ -81,6 +81,12 @@
                 <a>Aqui vai a mensagem de erro...</a>
             </div>
 
+            <div class="form-content">
+                <label for="numero">Número de telefone:</label> 
+                <input type="number" id="numero" placeholder="Digite seu número de telefone">
+                <a>Aqui vai a mensagem de erro...</a>
+            </div>
+            
             <div class="form-content">
                 <label for="genero">Gênero:</label><br>
                 <select id="genero" name="genero">
@@ -109,11 +115,3 @@
     <script src="css/script.js"></script>
 </body>
 </html>
-<!-- cpf.addEventListener('keypress', () => {
-    let cpfLength = cpf.value.length 
-    if (cpfLength == 3 || cpfLength == 7) {
-        cpf.value += '.'
-    }else if (inputLength == 11) {
-        cpf.value += '-'
-    }
-})-->

@@ -1,3 +1,5 @@
+//Aqui estão as contantes
+
 const form = document.getElementById("form");
 const username = document.getElementById("username");
 const email = document.getElementById("email");
@@ -8,9 +10,11 @@ const data = document.getElementById("data");
 const termos = document.getElementById("termos");
 const cpf = document.getElementById("cpf");
 const cep = document.getElementById("cep");
-const endereco = document.getElementById("endereco");
+const rua = document.getElementById("rua");
 const bairro = document.getElementById("bairro");
 const cidade = document.getElementById("cidade");
+const numero = document.getElementById("numero")
+
 
 form.addEventListener("submit", (event) => {
    event.preventDefault();
@@ -46,12 +50,8 @@ data.addEventListener("blur", () => {
     checkInputData();
 })
 
-cep.addEventListener("blur", () => {
-    checkInputCep();
-})
-
-endereco.addEventListener("blur", () => {
-    checkInputEndereco();
+rua.addEventListener("blur", () => {
+    checkInputRua();
 })
 
 bairro.addEventListener("blur", () => {
@@ -62,6 +62,21 @@ cidade.addEventListener("blur", () => {
     checkInputCidade();
 })
 
+numero.addEventListener("blur", () => {
+    checkInputNumero();
+})
+
+cep.addEventListener("blur", () => {
+    checkInputCep();
+    
+    fetch(`https://viacep.com.br/ws/${cep.value}/json/`)
+        .then(reposta => reposta.json())
+        .then(data => {
+            rua.value = data.logradouro;
+            bairro.value = data.bairro;
+            cidade.value = data.uf;
+        });
+})
 
 function checkInputUsername(){
     const usernameValue = username.value;
@@ -154,12 +169,12 @@ function checkInputCep(){
     }
 }
 
-function checkInputEndereco(){
-    const enderecoValue = endereco.value;
-    if (enderecoValue === ""){
-        errorInput(endereco, "Coloque o seu endereço")
+function checkInputRua(){
+    const ruaValue = rua.value;
+    if (ruaValue === ""){
+        errorInput(rua, "Coloque o seu endereço")
     }else{
-        const formItem = endereco.parentElement;
+        const formItem = rua.parentElement;
         formItem.className = "form-content";
     }
 }
@@ -183,6 +198,29 @@ function checkInputBairro(){
         formItem.className = "form-content";
     }
 }
+
+
+
+function checkInputNumero(){
+    const numeroValue = numero.value;
+    if (numeroValue === ""){
+        errorInput(numero, "Coloque o seu número")
+    }else{
+        const formItem = numero.parentElement;
+        formItem.className = "form-content";
+    }
+}
+
+numero.addEventListener("number", (event) => { 
+    const botoClicado = event.target;
+  
+    if (botoClicado.classList.contains('diminuir')) {
+      
+    } else if (botoClicado.classList.contains('aumentar')) {
+    }
+  
+    event.preventDefault(); // Impedir o comportamento padrão das setas
+  });
 
 function checkInputData(){
     const dataValue = data.value;
@@ -222,11 +260,11 @@ function checkForm(){
     checkBoxTermos();
     checkInputCPF();
     checkInputCep();
-    checkInputEndereco();
+    checkInputRua();
     checkInputBairro();
     checkInputCidade();
     checkInputGenero();
-
+    checkInputNumero();
 
     const formItems = form.querySelectorAll(".form-content")
 
