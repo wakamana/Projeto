@@ -14,13 +14,41 @@ const rua = document.getElementById("rua");
 const bairro = document.getElementById("bairro");
 const cidade = document.getElementById("cidade");
 const numero = document.getElementById("numero")
-
+/*const num = documento.getElementById("num");*/
 
 form.addEventListener("submit", (event) => {
    event.preventDefault();
 
    checkForm();
 });
+
+cpf.addEventListener("keypress", () => {
+    const cpfLength = cpf.value.length
+
+    if(cpfLength === 3 || cpfLength === 7){
+        cpf.value += "."
+    }else if(cpfLength === 11){
+        cpf.value += "-"
+    }
+
+})
+
+numero.addEventListener("keypress", () => {
+    const numeroLength = numero.value.length
+
+    if(numeroLength === 0 ){
+        numero.value += "("
+    }else if(numeroLength === 3){
+        numero.value += ")"
+    }else if(numeroLength === 5){
+        numero.value += " "
+    }else if(numeroLength === 10){
+        numero.value += "-"
+    }
+    
+
+})
+
 
 email.addEventListener("blur", () => {
     checkInputEmail();
@@ -61,6 +89,10 @@ bairro.addEventListener("blur", () => {
 cidade.addEventListener("blur", () => {
     checkInputCidade();
 })
+
+/*num.addEventListener("blur", () => {
+    checkInputNum ();
+})*/
 
 numero.addEventListener("blur", () => {
     checkInputNumero();
@@ -199,6 +231,16 @@ function checkInputBairro(){
     }
 }
 
+/*function checkInputNum(){
+    const numValue = num.value;
+    if (numValue === ""){
+        errorInput(bairro, "Coloque o seu bairro")
+    }else{
+        const formItem = num.parentElement;
+        formItem.className = "form-content";
+    }*/
+
+
 
 
 function checkInputNumero(){
@@ -265,6 +307,7 @@ function checkForm(){
     checkInputCidade();
     checkInputGenero();
     checkInputNumero();
+    //checkInputNum();
 
     const formItems = form.querySelectorAll(".form-content")
 
