@@ -13,7 +13,9 @@ const cep = document.getElementById("cep");
 const rua = document.getElementById("rua");
 const bairro = document.getElementById("bairro");
 const cidade = document.getElementById("cidade");
-const numero = document.getElementById("numero")
+const numero = document.getElementById("numero");
+const emailRegex = /^[\w\.-]+@[\w\.-]+\.[a-zA-Z]{2,}$/;
+const numeroRegex = /^\d+$/;
 /*const num = documento.getElementById("num");*/
 
 form.addEventListener("submit", (event) => {
@@ -40,15 +42,12 @@ numero.addEventListener("keypress", () => {
         numero.value += "("
     }else if(numeroLength === 3){
         numero.value += ")"
-    }else if(numeroLength === 5){
-        numero.value += " "
-    }else if(numeroLength === 10){
+    }else if(numeroLength === 9){
         numero.value += "-"
     }
     
 
 })
-
 
 email.addEventListener("blur", () => {
     checkInputEmail();
@@ -112,7 +111,6 @@ cep.addEventListener("blur", () => {
 
 function checkInputUsername(){
     const usernameValue = username.value;
-
     if(usernameValue === "" ){
         errorInput(username, "Digite seu nome!");
     }else{
@@ -122,12 +120,11 @@ function checkInputUsername(){
 }
 
 function checkInputEmail(){
-    const emailValue = email.value;
-    if (emailValue === ""){
-        errorInput(email, "Digite um email válido!");
-    }else{
+    if(emailRegex.test(email.value)){
         const formItem = email.parentElement;
         formItem.className = "form-content";
+    }else{
+        errorInput(email, "Digite um email válido!");
     }
 
 }
