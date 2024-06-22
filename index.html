@@ -49,7 +49,8 @@
 
             <div class="form-content">
                 <label for="cpf">Digite seu CPF:</label>
-                <input type="text" maxlength="14"  id="cpf" name="cpf" placeholder="Digite aqui seu CPF">
+                <input type="text" maxlength="14"  id="cpf" name="cpf" placeholder="Digite aqui seu CPF"
+                oninput="this.value = this.value.replace(/[^0-9().\\-]/g, '');">
                 <a>Aqui vai a mensagem de erro...</a>
              
             </div>
@@ -88,7 +89,8 @@
 
             <div class="form-content">
                 <label for="numero">Número de telefone:</label> 
-                <input type="text" maxlength = "14" id="numero" placeholder="Digite seu número de telefone">
+                <input type="text" maxlength = "14" id="numero" autocomplete="tel"placeholder="Digite seu número de telefone"
+                oninput="this.value = this.value.replace(/[^0-9()\\-]/g, '');"/>
                 <a>Aqui vai a mensagem de erro...</a>
             </div>
             

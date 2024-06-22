@@ -15,7 +15,6 @@ const bairro = document.getElementById("bairro");
 const cidade = document.getElementById("cidade");
 const numero = document.getElementById("numero");
 const emailRegex = /^[\w\.-]+@[\w\.-]+\.[a-zA-Z]{2,}$/;
-const numeroRegex = /^\d+$/;
 /*const num = documento.getElementById("num");*/
 
 form.addEventListener("submit", (event) => {
@@ -238,8 +237,6 @@ function checkInputBairro(){
     }*/
 
 
-
-
 function checkInputNumero(){
     const numeroValue = numero.value;
     if (numeroValue === ""){
@@ -250,7 +247,7 @@ function checkInputNumero(){
     }
 }
 
-numero.addEventListener("number", (event) => { 
+/*numero.addEventListener("number", (event) => { 
     const botoClicado = event.target;
   
     if (botoClicado.classList.contains('diminuir')) {
@@ -259,7 +256,7 @@ numero.addEventListener("number", (event) => {
     }
   
     event.preventDefault(); // Impedir o comportamento padrão das setas
-  });
+  });*/
 
 function checkInputData(){
     const dataValue = data.value;
